@@ -1,0 +1,53 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Core", "Core", "{4E104E06-1E08-4BAE-BB1C-88A7D3FFE190}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Infrastructure", "Infrastructure", "{436BCDDA-7227-4372-A8E0-BCCE54B2053B}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Presentation", "Presentation", "{3671FCAA-31CF-4C75-9049-79FC280419F6}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ZenBlogServer.Domain", "Core\ZenBlogServer.Domain\ZenBlogServer.Domain.csproj", "{E1820038-91D2-4BD4-9A4D-3CD61340CE09}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ZenBlogServer.Application", "Core\ZenBlogServer.Application\ZenBlogServer.Application.csproj", "{7D78F136-E23C-4D8A-BE7F-895BE7F537F8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ZenBlogServer.Persistence", "Infrastructure\ZenBlogServer.Persistence\ZenBlogServer.Persistence.csproj", "{DEE65298-7D27-4EF8-9192-696D95E2EE14}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ZenBlogServer.Infrastructure", "Infrastructure\ZenBlogServer.Infrastructure\ZenBlogServer.Infrastructure.csproj", "{23FA5F68-AF20-4345-B5FF-C4DCEEBAACD4}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ZenBlogServer.API", "Presentation\ZenBlogServer.API\ZenBlogServer.API.csproj", "{0548B70A-54A9-4432-B034-8C2A603DC26A}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{E1820038-91D2-4BD4-9A4D-3CD61340CE09} = {4E104E06-1E08-4BAE-BB1C-88A7D3FFE190}
+		{7D78F136-E23C-4D8A-BE7F-895BE7F537F8} = {4E104E06-1E08-4BAE-BB1C-88A7D3FFE190}
+		{DEE65298-7D27-4EF8-9192-696D95E2EE14} = {436BCDDA-7227-4372-A8E0-BCCE54B2053B}
+		{23FA5F68-AF20-4345-B5FF-C4DCEEBAACD4} = {436BCDDA-7227-4372-A8E0-BCCE54B2053B}
+		{0548B70A-54A9-4432-B034-8C2A603DC26A} = {3671FCAA-31CF-4C75-9049-79FC280419F6}
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{E1820038-91D2-4BD4-9A4D-3CD61340CE09}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E1820038-91D2-4BD4-9A4D-3CD61340CE09}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E1820038-91D2-4BD4-9A4D-3CD61340CE09}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E1820038-91D2-4BD4-9A4D-3CD61340CE09}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7D78F136-E23C-4D8A-BE7F-895BE7F537F8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7D78F136-E23C-4D8A-BE7F-895BE7F537F8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7D78F136-E23C-4D8A-BE7F-895BE7F537F8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7D78F136-E23C-4D8A-BE7F-895BE7F537F8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DEE65298-7D27-4EF8-9192-696D95E2EE14}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DEE65298-7D27-4EF8-9192-696D95E2EE14}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DEE65298-7D27-4EF8-9192-696D95E2EE14}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DEE65298-7D27-4EF8-9192-696D95E2EE14}.Release|Any CPU.Build.0 = Release|Any CPU
+		{23FA5F68-AF20-4345-B5FF-C4DCEEBAACD4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{23FA5F68-AF20-4345-B5FF-C4DCEEBAACD4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{23FA5F68-AF20-4345-B5FF-C4DCEEBAACD4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{23FA5F68-AF20-4345-B5FF-C4DCEEBAACD4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0548B70A-54A9-4432-B034-8C2A603DC26A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0548B70A-54A9-4432-B034-8C2A603DC26A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0548B70A-54A9-4432-B034-8C2A603DC26A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0548B70A-54A9-4432-B034-8C2A603DC26A}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
