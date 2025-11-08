@@ -1,6 +1,8 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using ZenBlogServer.Application.Contracts.Persistence;
+using ZenBlogServer.Persistence.Concrete;
 using ZenBlogServer.Persistence.Context;
 
 namespace ZenBlogServer.Persistence.Extensions;
@@ -13,5 +15,8 @@ public static class ServiceRegistrations
         {
             options.UseSqlServer(configuration.GetConnectionString("SqlConnection"));
         });
+
+        services.AddScoped<IUnitOfWork, UnitOfWork>();
+        services.AddScoped(typeof(IRepository<>), typeof(GenericRepository<>));
     }
 }
