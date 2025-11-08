@@ -10,4 +10,20 @@
       <ProjectReference Include="..\ZenBlogServer.Domain\ZenBlogServer.Domain.csproj" />
     </ItemGroup>
 
+    <ItemGroup>
+      <Folder Include="Features\Categories\Commands\" />
+      <Folder Include="Features\Categories\Handlers\" />
+      <Folder Include="Features\Categories\Mappings\" />
+      <Folder Include="Features\Categories\Queries\" />
+      <Folder Include="Features\Categories\Results\" />
+      <Folder Include="Features\Categories\Validators\" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <PackageReference Include="AutoMapper" Version="14.0.0" />
+      <PackageReference Include="FluentValidation" Version="12.0.0" />
+      <PackageReference Include="FluentValidation.DependencyInjectionExtensions" Version="12.0.0" />
+      <PackageReference Include="MediatR" Version="12.5.0" />
+    </ItemGroup>
+
 </Project>
