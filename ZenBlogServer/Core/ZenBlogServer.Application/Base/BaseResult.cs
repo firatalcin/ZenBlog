@@ -1,11 +1,16 @@
-﻿namespace ZenBlogServer.Application.Base;
+﻿using System.Text.Json.Serialization;
+
+namespace ZenBlogServer.Application.Base;
 
 public class BaseResult<T>
 {
     public T? Data { get; set; }
-    public IEnumerable<Error> Errors { get; set; }
-    public bool IsSuccess => Errors.Count() == 0;
-    public bool IsFailure => Errors.Any();
+    public IEnumerable<Error> Errors { get; set; } = Enumerable.Empty<Error>();
+
+    [JsonIgnore]
+    public bool IsSuccess => Data != null;
+    [JsonIgnore]
+    public bool IsFailure => Errors.Any(); // artık güvenli
 
 
     public static BaseResult<T> Success(T data)
