@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using ZenBlogServer.Application.Features.Categories.Commands;
 using ZenBlogServer.Application.Features.Categories.Results;
 using ZenBlogServer.Domain.Entities;
 
@@ -9,5 +10,7 @@ public class CategoryMappingProfile : Profile
     public CategoryMappingProfile()
     {
         CreateMap<Category, GetCategoryQueryResult>().ReverseMap();
+        CreateMap<Category, GetCategoryByIdQueryResult>().ReverseMap();
+        CreateMap<Category, CreateCategoryCommand>().ReverseMap();
     }
 }

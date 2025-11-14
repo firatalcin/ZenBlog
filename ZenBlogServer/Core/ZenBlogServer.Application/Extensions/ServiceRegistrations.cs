@@ -1,6 +1,7 @@
 ﻿using System.Reflection;
 using FluentValidation;
 using Microsoft.Extensions.DependencyInjection;
+using ZenBlogServer.Application.Behaviors;
 
 namespace ZenBlogServer.Application.Extensions;
 
@@ -12,6 +13,7 @@ public static class ServiceRegistrations
         services.AddMediatR(config =>
         {
             config.RegisterServicesFromAssembly(Assembly.GetExecutingAssembly());
+            config.AddOpenBehavior(typeof(ValidationBehavior<,>));
         });
 
         services.AddValidatorsFromAssembly(Assembly.GetExecutingAssembly());
