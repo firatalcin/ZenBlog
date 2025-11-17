@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using ZenBlogServer.Persistence.Context;
 
@@ -11,16 +12,15 @@ using ZenBlogServer.Persistence.Context;
 namespace ZenBlogServer.Persistence.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    partial class AppDbContextModelSnapshot : ModelSnapshot
+    [Migration("20251117202717_mig_identity_added")]
+    partial class mig_identity_added
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
                 .HasAnnotation("ProductVersion", "9.0.10")
-                .HasAnnotation("Proxies:ChangeTracking", false)
-                .HasAnnotation("Proxies:CheckEquality", false)
-                .HasAnnotation("Proxies:LazyLoading", true)
                 .HasAnnotation("Relational:MaxIdentifierLength", 128);
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
@@ -305,9 +305,6 @@ namespace ZenBlogServer.Persistence.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<Guid>("BlogId")
-                        .HasColumnType("uniqueidentifier");
-
                     b.Property<string>("Body")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
@@ -326,8 +323,6 @@ namespace ZenBlogServer.Persistence.Migrations
                         .HasColumnType("nvarchar(450)");
 
                     b.HasKey("Id");
-
-                    b.HasIndex("BlogId");
 
                     b.HasIndex("UserId");
 
@@ -539,19 +534,11 @@ namespace ZenBlogServer.Persistence.Migrations
 
             modelBuilder.Entity("ZenBlogServer.Domain.Entities.Comment", b =>
                 {
-                    b.HasOne("ZenBlogServer.Domain.Entities.Blog", "Blog")
-                        .WithMany("Comments")
-                        .HasForeignKey("BlogId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
                     b.HasOne("ZenBlogServer.Domain.Entities.AppUser", "User")
                         .WithMany("Comments")
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
-
-                    b.Navigation("Blog");
 
                     b.Navigation("User");
                 });
@@ -582,11 +569,6 @@ namespace ZenBlogServer.Persistence.Migrations
                     b.Navigation("Comments");
 
                     b.Navigation("SubComments");
-                });
-
-            modelBuilder.Entity("ZenBlogServer.Domain.Entities.Blog", b =>
-                {
-                    b.Navigation("Comments");
                 });
 
             modelBuilder.Entity("ZenBlogServer.Domain.Entities.Category", b =>

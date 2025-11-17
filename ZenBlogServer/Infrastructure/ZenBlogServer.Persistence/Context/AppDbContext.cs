@@ -1,9 +1,10 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore;
 using ZenBlogServer.Domain.Entities;
 
 namespace ZenBlogServer.Persistence.Context;
 
-public class AppDbContext(DbContextOptions<AppDbContext> options) : DbContext(options)
+public class AppDbContext(DbContextOptions<AppDbContext> options) : IdentityDbContext<AppUser,AppRole,string>(options)
 {
     public DbSet<Category> Categories { get; set; }
     public DbSet<Blog> Blogs { get; set; }
