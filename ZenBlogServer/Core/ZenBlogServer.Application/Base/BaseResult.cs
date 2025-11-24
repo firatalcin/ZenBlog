@@ -1,55 +1,68 @@
 ﻿using System.Text.Json.Serialization;
+using Microsoft.AspNetCore.Identity;
 
 namespace ZenBlogServer.Application.Base;
 
 public class BaseResult<T>
 {
     public T? Data { get; set; }
-    public IEnumerable<Error> Errors { get; set; } = Enumerable.Empty<Error>();
+
+    public IEnumerable<object>? Errors { get; set; }
 
     [JsonIgnore]
-    public bool IsSuccess => Data != null;
+    public bool IsSuccess => Errors==null || !Errors.Any();
+
     [JsonIgnore]
-    public bool IsFailure => Errors.Any(); // artık güvenli
+    public bool IsFailure => !IsSuccess;
 
 
     public static BaseResult<T> Success(T data)
     {
         return new BaseResult<T>
         {
-            Data = data,
+            Data = data
         };
     }
-    
-    public static BaseResult<T> Fail(T data)
+
+    public static BaseResult<T> Fail(string error)
     {
         return new BaseResult<T>
         {
-            Errors = new [] { new Error { ErrorMessage = data.ToString() } }
+            Errors = [new Error{ErrorMessage = error}]
         };
     }
-    
+
     public static BaseResult<T> Fail()
     {
         return new BaseResult<T>
         {
-            Errors = new [] { new Error { ErrorMessage = "An error occured" } }
+            Errors = [new Error { ErrorMessage = "an Unexpected Error Occured" }]
         };
     }
-    
-    public static BaseResult<T> Fail(IEnumerable<Error> errors)
+
+    public static BaseResult<T> Fail(IEnumerable<IdentityError> errors)
     {
         return new BaseResult<T>
         {
-            Errors = (from e in errors select new Error { ErrorMessage = e.ToString() }  ).ToList()
+            Errors = (from error in errors
+                select new Error { PropertyName = error.Code, ErrorMessage = error.Description})
         };
     }
-    
+
+    public static BaseResult<T> Fail(IEnumerable<string> errors)
+    {
+        return new BaseResult<T>
+        {
+            Errors = (from error in errors 
+                select new Error{ErrorMessage = error})
+        };
+    }
+
     public static BaseResult<T> NotFound(string message)
     {
         return new BaseResult<T>
         {
-            Errors = new [] { new Error { ErrorMessage = message } }
+            Errors = [new Error{ErrorMessage = message}]
         };
     }
 }
@@ -57,5 +70,6 @@ public class BaseResult<T>
 public class Error
 {
     public string? PropertyName { get; set; }
-    public string? ErrorMessage { get; set; }
+    public string ErrorMessage { get; set; }
+
 }
