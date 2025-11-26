@@ -35,12 +35,12 @@ public class GenericRepository<TEntity>(AppDbContext _context) : IRepository<TEn
         await _context.AddAsync(entity);
     }
 
-    public void UpdateAsync(TEntity entity)
+    public void Update(TEntity entity)
     {
         _context.Update(entity);
     }
 
-    public void DeleteAsync(TEntity entity)
+    public void Delete(TEntity entity)
     {
         _context.Remove(entity);
     }

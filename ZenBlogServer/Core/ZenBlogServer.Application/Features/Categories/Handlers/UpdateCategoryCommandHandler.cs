@@ -13,7 +13,7 @@ public class UpdateCategoryCommandHandler(IRepository<Category> repository, IMap
     public async Task<BaseResult<bool>> Handle(UpdateCategoryCommand request, CancellationToken cancellationToken)
     {
         var category = mapper.Map<Category>(request);
-        repository.UpdateAsync(category);
+        repository.Update(category);
         var response = await unitOfWork.SaveChangesAsync();
         
         return response

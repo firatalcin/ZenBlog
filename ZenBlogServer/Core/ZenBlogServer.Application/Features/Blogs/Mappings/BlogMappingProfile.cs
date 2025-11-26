@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using ZenBlogServer.Application.Features.Blogs.Commands;
 using ZenBlogServer.Application.Features.Blogs.Results;
 using ZenBlogServer.Domain.Entities;
 
@@ -9,5 +10,8 @@ public class BlogMappingProfile : Profile
     public BlogMappingProfile()
     {
         CreateMap<Blog, GetBlogsQueryResult>().ReverseMap();
+        CreateMap<Blog, GetBlogByIdQueryResult>().ReverseMap();
+        CreateMap<Blog, CreateBlogCommand>().ReverseMap();
+        CreateMap<Blog, UpdateBlogCommand>().ReverseMap();
     }
 }

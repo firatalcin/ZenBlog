@@ -12,7 +12,7 @@ public class RemoveCategoryCommandHandler(IRepository<Category> repository, IUni
     public async Task<BaseResult<bool>> Handle(RemoveCategoryCommand request, CancellationToken cancellationToken)
     {
         var entity = await repository.GetByIdAsync(request.Id);
-        repository.DeleteAsync(entity);
+        repository.Delete(entity);
         var response = await unitOfWork.SaveChangesAsync();
         
         return response 
