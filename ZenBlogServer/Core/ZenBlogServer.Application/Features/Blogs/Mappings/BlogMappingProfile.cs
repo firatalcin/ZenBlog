@@ -13,5 +13,6 @@ public class BlogMappingProfile : Profile
         CreateMap<Blog, GetBlogByIdQueryResult>().ReverseMap();
         CreateMap<Blog, CreateBlogCommand>().ReverseMap();
         CreateMap<Blog, UpdateBlogCommand>().ReverseMap();
+        CreateMap<Blog, GetBlogsByCategoryIdQueryResult>().ReverseMap();
     }
 }

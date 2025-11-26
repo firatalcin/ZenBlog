@@ -46,5 +46,12 @@ public static class BlogEndpoints
                 var response = await mediator.Send(new RemoveBlogCommand(id));
                 return response.IsSuccess ? Results.Ok(response) : Results.BadRequest(response);
             });
+        
+        blogs.MapGet("byCategoryId/{categoryId}",
+            async (Guid categoryId, IMediator mediator) =>
+            {
+                var response = await mediator.Send(new GetBlogsByCategoryIdQuery(categoryId));
+                return response.IsSuccess ? Results.Ok(response) : Results.BadRequest(response);
+            });
     }
 }
