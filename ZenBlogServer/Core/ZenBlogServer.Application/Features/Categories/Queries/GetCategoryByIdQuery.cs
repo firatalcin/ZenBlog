@@ -1,6 +1,6 @@
 ﻿using MediatR;
 using ZenBlogServer.Application.Base;
-using ZenBlogServer.Application.Features.Categories.Results;
+using ZenBlogServer.Application.Features.Categories.Result;
 
 namespace ZenBlogServer.Application.Features.Categories.Queries;
 

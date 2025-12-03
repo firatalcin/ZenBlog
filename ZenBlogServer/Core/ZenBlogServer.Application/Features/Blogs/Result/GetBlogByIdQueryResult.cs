@@ -1,7 +1,7 @@
 ﻿using ZenBlogServer.Application.Base;
-using ZenBlogServer.Application.Features.Categories.Results;
+using ZenBlogServer.Application.Features.Categories.Result;
 
-namespace ZenBlogServer.Application.Features.Blogs.Results;
+namespace ZenBlogServer.Application.Features.Blogs.Result;
 
 public class GetBlogByIdQueryResult: BaseDto
 {

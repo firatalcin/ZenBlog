@@ -1,6 +1,6 @@
 ﻿using ZenBlogServer.Application.Base;
 
-namespace ZenBlogServer.Application.Features.Categories.Results;
+namespace ZenBlogServer.Application.Features.Categories.Result;
 
 public class GetCategoryByIdQueryResult : BaseDto
 {

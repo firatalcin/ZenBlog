@@ -1,7 +1,10 @@
 ﻿using MediatR;
+using Microsoft.AspNetCore.Builder;
+using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Routing;
 using ZenBlogServer.Application.Features.Users.Commands;
 
-namespace ZenBlogServer.API.Endpoints;
+namespace ZenBlogServer.Application.Features.Users.Endpoints;
 
 public static class UserEndpoints
 {

@@ -1,6 +1,6 @@
 ﻿using AutoMapper;
 using ZenBlogServer.Application.Features.Categories.Commands;
-using ZenBlogServer.Application.Features.Categories.Results;
+using ZenBlogServer.Application.Features.Categories.Result;
 using ZenBlogServer.Domain.Entities;
 
 namespace ZenBlogServer.Application.Features.Categories.Mappings;
