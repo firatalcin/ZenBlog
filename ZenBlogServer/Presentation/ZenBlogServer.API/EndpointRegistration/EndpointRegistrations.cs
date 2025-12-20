@@ -3,6 +3,7 @@ using ZenBlogServer.Application.Features.Categories.Endpoints;
 using ZenBlogServer.Application.Features.Comments.Endpoints;
 using ZenBlogServer.Application.Features.ContactInfos.Endpoints;
 using ZenBlogServer.Application.Features.Messages.Endpoints;
+using ZenBlogServer.Application.Features.Socials.Endpoints;
 using ZenBlogServer.Application.Features.SubComments.Endpoints;
 using ZenBlogServer.Application.Features.Users.Endpoints;
 
@@ -19,6 +20,6 @@ public static class EndpointRegistrations
         app.RegisterContactInfoEndpoints();
         app.RegisterMessageEndpoints();
         app.RegisterSubCommentEndpoints();
-        
+        app.RegisterSocialEndpoints();
     }
 }
